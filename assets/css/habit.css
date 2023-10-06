@@ -1,0 +1,238 @@
+/* body style */
+body{
+    margin: 10px;
+    margin-top: 0%;
+    /* background-color: rgb(138, 210, 234); */
+}
+
+/* container style */
+#container{
+    height: auto;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    padding: 10px;
+    /* left: 10%; */
+    /* background-color: rgb(173, 216, 230); */
+    background-color: lightcyan;
+    box-shadow: 1px 1px 8px 2px rgb(145, 144, 144);
+    /* opacity: 0.8; */
+    text-align: center;   
+    /* font-weight:bold ; */
+}
+#heading h1 {
+    font-size: 45px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* form style */
+
+/* container of form style */
+#habit_form div{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    display: inline-flex;
+    
+}
+
+/* content style */
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    border-top: .1px solid grey;
+    padding: 10px;
+    box-sizing: border-box;
+   
+}
+
+#content p{
+    font-size: 20px;
+    font-weight: bold;
+}
+/* all input style  */
+input{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid lightblue;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 200;
+    transition: all 1s ease-out;
+}
+
+/* all input active state style */
+input:active {
+    background-color: grey;
+    border: none;
+}
+
+/* button container style */
+#buttons{
+    position: relative;
+    left: 10%;
+    margin: 4% 0;
+   
+}
+
+/* button style */
+button{
+    border: none;
+    background-color: transparent;
+    height: 2.5rem;
+    box-shadow: 0px 0px 4px 1px lightgray;
+    cursor: pointer;
+    position: relative;
+    top: 7px;
+}
+
+/* hover effect on add button and delete button */
+#addHabit:hover, #deleteHabit:hover {
+    box-shadow: 1px 1px 8px 2px white;
+
+}
+
+/* styling for add button */
+#addHabit{
+    width: 40%;
+    font-size: 1.2rem;
+    color: white;
+    padding: 4px;
+    border: none;
+    background:  lightblue;
+}
+
+
+
+/* display tasks list style  */
+/* styling for delete button */
+#deleteHabit{
+    width: 10%;
+    text-align: center;
+    border-radius: 5%;
+    font-size: 1.3rem;
+    color: white; 
+    /* background:  lightblue; */
+}
+
+/* #deleteHabit .btn {
+    color: red;
+} */
+
+#progress {
+
+    bottom: 22px;
+    right: 22px;
+    border-radius: 50%;
+    margin: 13px 0 0 0;
+    padding: 0 14px;
+    cursor: pointer;
+}
+
+/* #creator,
+#progress {
+    border: 0;
+    border-radius: 0;
+    background: #728986;
+    outline: none;
+    color: #fff;
+    /* transition: background .15s ease; */
+
+} */
+.dot {
+    height: 70px;
+    width: 70px;
+    /* background-color: #bbb; */
+    /* border-radius: 50%; */
+    display: inline-block;
+}
+
+.App {
+    text-align: center;
+    color: red;
+}
+/* #habit-detail span{
+    display: inline-flex;
+    align-self: start;
+    justify-content: space-around;
+} */
+
+.card-header{
+    background-color: #cff2f2;
+    color: black;
+    color: #8a2be2;
+    font-weight: 700;
+    /* background-color: lightcyan; */
+    border-radius: 50%;
+    /* display: inline-block; */
+}
+
+
+.card-head2 {
+    /* background-color: #cff2f2; */
+    /* color: #8a2be2; */
+    color: grey;
+    font-weight: 700;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/******** Weekly days  bar ********/
+
+  
+.circular-progress {
+    position: relative;
+    /* height: 50px; */
+    height: auto;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* border-radius: 50%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    place-items: center;
+    cursor: pointer;
+    /* background: lightblue; */
+    /* background: conic-gradient(rgb(105, 105, 195) 360deg, rgb(202, 220, 255) 360deg); */
+  }
+  .circular-progress::before:hover{
+    background-color:  conic-gradient(rgb(130, 130, 243) 360deg);
+  }
+  
+  .circular-progress:before {
+    content: "";
+    position: absolute;
+    /* height: 84%; */
+    /* width: 84%; */
+    /* background-color: #ffffff; */
+    /* background-color: rgb(220, 216, 216); */
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    border-radius: 50%;
+  }
+  
+  .value-container {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    /* color: #9a5281; */
+    color: black;
+    font-weight:bold;
+   
+  }
+  .habit-days{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+  }
+
+

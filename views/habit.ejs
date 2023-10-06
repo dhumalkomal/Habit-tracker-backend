@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/svg+xml" href="https://example.com/image.svg"> -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/habit.css">
+    <title>Habit tracker</title>
+</head>
+
+<body>
+<div id="container">
+    <!-- Adding title -->
+    <div id="heading">
+        <h1> Habit Tracker </h1>
+    </div>
+
+    <!-- Form for adding task -->
+    <div id="form-container">
+        <form action="/add-habit" id="habit-form" method="post">
+            <!-- habit input content -->
+            <div id="content">
+                <p>Habit Name</p>
+                <input type="text" name="content" placeholder="Enter habit here...">
+            </div>
+        
+
+            <!-- Add habit button -->
+            <div id="buttons">
+                <!-- add button -->
+                <div id="add-button">
+                    <button type="submit" id="addHabit" >
+                        <i class="fas fa-plus"></i>
+                        Add Habit
+                    </button>
+                </div>
+            </div>
+            <!-- end of add  button -->
+
+        </form>
+    </div>
+    <!--end Form for adding task -->
+
+    <!-- Displaying Habits -->
+    <div class="row justify-content-center mt-3 mb-5 " id="habts-container">
+
+        <% habit.forEach(habits=> { let tzoffset = (new Date()).getTimezoneOffset() * 60000, found=false, status='';
+            var today = (new Date(Date.now() - tzoffset)).toISOString().slice(0, 10);
+            habits.dates.find(function (item, index) {
+            if(item.date === today)
+            {
+            found = true;
+            status = item.complete;
+            }
+            });
+            %>
+            <div class="col-md-10 " id="habts-list">
+                <div class='shadow-lg border border-light rounded  mt-3 p-4 bg-white '>
+                    <!--  Delete Habit button div-->
+                    <div class='float-end shadow-sm me-2 justify-content-center' id="deleteHabit">
+                        <a href="/<%= habits._id %>" class='btn' id="button">
+                            <!-- <i class="bi bi-archive-fill icon"></i> -->
+                            <img src="https://cdn-icons-png.flaticon.com/128/9790/9790368.png" width="30px" height="30px">
+                            
+                        </a>
+                    </div>
+                    <!-- end of delete button div -->
+                    <!--  -->
+                    <div id="habit-details">
+                        <span class="card-header float-start  mt-2 rounded me-2" id="contnt">
+                            <%= habits.content %>
+                        </span>
+                        <!-- Date  -->
+                        <span class="card-head2 mt-3 rounded  ms-4" id="dat"><i>
+                                Weekly
+                            </i> </span>
+                    </div>
+
+                    <!--  Delete Habit button -->
+                    
+                    <!-- end of delete habit button -->
+                    <div class="col-md-10 justify-content-center habit-days mt-3 ">
+                        <% days.forEach(day=> { 
+                            let found = false, 
+                            status = '';
+                            habits.dates.find(function (item, index) {
+                            if(item.date === day.date)
+                            {
+                            found = true;
+                            status = item.complete;
+                            }
+                            });
+                            %>
+
+                            <div class="table-responsive-sm table-responsive-md mb-1 mt-4 ">
+
+                                <table class="table 
+                                       table-bordered border-light">
+
+                                    <thead>
+                                        <tr>
+
+                                            <th>
+
+                                                <div class="circular-progress">
+
+                                                    <div class="value-container">
+                                                        <%= day.day %> 
+                                                        <!-- <br> -->
+                                                            <span>
+                                                                <%= day.date.slice(-2) %>
+                                                            </span>
+                                                    </div>
+
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td class=" pb-3">
+                                                <a href="habitStatus/?id=<%= habits._id %>&date=<%= day.date %>">
+                                                    <% if(found && status==='done' ){ %>
+                                                        <img src="https://cdn.pixabay.com/photo/2012/04/11/17/44/check-mark-29114_1280.png" alt="check"
+                                                            width="25" height="25" class="ms-3">
+                                                        <% } else if(found && status==='not done' ){ %>
+                                                            <img src="https://www.vhv.rs/dpng/d/431-4318468_picture-wrong-red-cross-symbol-hd-png-download.png" alt="cross"
+                                                                width="30" height="25" class=" ms-3">
+                                                            <% } else { %>
+                                                                <img src="https://cdn-icons-png.flaticon.com/512/25/25232.png" alt="minus"
+                                                                    width="25" height="25" class=" ms-3 bg-light">
+                                                                <% } %>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                            <% }) %>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <!-- end of div displaying habit -->
+</div>
+<!-- end container -->
+
+    <!-- Heading -->
+    <div style="margin-top: 40px ;">
+        <h1 class="text-center" style="color: #222; font-weight: 700; font-size: 3rem;">
+            Habit Tracker
+        </h1>
+    </div>
+
+
+    
+    <!-- FontAwesome Icon Script -->
+    <script src="https://kit.fontawesome.com/d5635d350d.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts -->
+    <!-- <script>
+        $('[data-toggle="tooltip"]').tooltip({ 'placement': 'bottom' });
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+        <script src="/js/habit.js"></script>
+    </body>
+
+</html>
