@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const mongoURL = 'mongodb://127.0.0.1:27017/Habit_tracker'; // Replace with your MongoDB URL and database name
+const mongoURL = 'mongodb://localhost:27017/Habit_tracker'; 
 
 const db = mongoose.Connection;
 
