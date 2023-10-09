@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 
-const mongoURL = 'mongodb://127.0.0.1:27017/Habit_tracker'; 
+// const mongoURL = 'mongodb://127.0.0.1:27017/Habit_tracker'; 
+
+const mongoURL = 'mongodb+srv://user:user@cluster0.cds28yu.mongodb.net/';
+
 
 const db = mongoose.Connection;
 
