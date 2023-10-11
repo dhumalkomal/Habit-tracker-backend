@@ -72,20 +72,17 @@
                         </a>
                     </div>
                     <!-- end of delete button div -->
-                    <!--  -->
+                    <!-- habit content div -->
                     <div id="habit-details">
-                        <span class="card-header float-start  mt-2 rounded me-2" id="contnt">
+                        <span class="card-header float-start  mt-2 rounded me-2" >
                             <%= habits.content %>
                         </span>
                         <!-- Date  -->
-                        <span class="card-head2 mt-3 rounded  ms-4" id="dat"><i>
+                        <span class="card-head2 mt-3 rounded  ms-4" ><i>
                                 Weekly
                             </i> </span>
                     </div>
-
-                    <!--  Delete Habit button -->
                     
-                    <!-- end of delete habit button -->
                     <div class="col-md-10 justify-content-center habit-days mt-3 ">
                         <% days.forEach(day=> { 
                             let found = false, 
