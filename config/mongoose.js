@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const mongoURL = 'mongodb+srv://Addhabit:addhabit@cluster0.krqzlcy.mongodb.net/habits-tracker?retryWrites=true&w=majority';
 
+mongoose.set("strictQuery", false);
 
 const db = mongoose.Connection;
 
