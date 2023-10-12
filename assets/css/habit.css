@@ -13,12 +13,9 @@ body{
     position: relative;
     padding: 10px;
     /* left: 10%; */
-    /* background-color: rgb(173, 216, 230); */
     background-color: lightcyan;
     box-shadow: 1px 1px 8px 2px rgb(145, 144, 144);
-    /* opacity: 0.8; */
     text-align: center;   
-    /* font-weight:bold ; */
 }
 #heading h1 {
     font-size: 45px;
@@ -43,7 +40,6 @@ body{
     flex-direction: column;
     align-items: flex-start;
     text-align: center;
-    /* border-top: .1px solid grey; */
     padding: 10px;
     box-sizing: border-box;
    
@@ -57,7 +53,7 @@ body{
 input{
     border: none;
     outline: none;
-    border-bottom: 2px solid lightblue;
+    border-bottom: 1.5px solid black;
     width: 100%;
     height: 50px;
     background-color: transparent;
@@ -97,7 +93,8 @@ button{
     color: white;
     padding: 4px;
     border: none;
-    background:  lightblue;
+    background:  #003d8b;
+    /* background-color: lightcoral; */
 }
 
 /* display tasks list style  */
