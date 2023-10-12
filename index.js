@@ -18,11 +18,9 @@ app.use(express.static('./assets'));
 
 
 // middleware use express router
-
-// const router = require('./routes/router.js')
 app.use('/', require('./routes/router.js'));
 
-
+// Start the server and listen on the specified port
 app.listen(port, function(err) {
     if(err){
         console.log(`Error in running the server: ${err}`);

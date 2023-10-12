@@ -20,22 +20,6 @@ module.exports.Habit = async function (req, res) {
         .catch(err => {
             console.log(err);
         });
-    // console.log('hello');
-    // try{
-    //     let listItem = await Habit.find({})
-
-    //     return res.render('Habit', {
-    //         title:"Habit Tracker",
-    //         habit : listItem
-    //     });
-
-    // }catch(err){
-    //     // Error in fetching the data
-    //     console.log("Error", err);
-    //     return res.redirect('back');
-
-    // }
-     
 }
 // Find the Date and Return the string Date
 function getD(n) {
@@ -142,10 +126,6 @@ module.exports.habitStatus = async function(req, res) {
                 console.log(updatedHabit);
                 res.redirect('back');
             })
-            // .catch(err => {
-            //     console.log("Habit status not updated", err);
-            //     res.status(500).send("Error updating habit status");
-            // });
             .catch(err => {
                 console.error("Error updating habit status:", err);
                 res.status(500).send(`Error updating habit status: ${err.message}`);
@@ -158,7 +138,6 @@ module.exports.addHabit = async function(req, res){
     console.log("Added the Habit");
 
     try{
-
         let newHabit = await Habit.create({
             content: req.body.content            
         });
@@ -180,32 +159,3 @@ module.exports.deleteHabit = async function (req, res) {
             res.status(500).json(err);
         } res.redirect('/')
 }
-
-
-
-
-
-// //  function to handle deleting tasks
-// module.exports.deleteHabit = async function (req, res) {
-//     console.log('Deleting habits');
-
-//     const habitIdsToDelete = req.body.habitIds.split(','); // Array of selected task IDs to delete
-
-//     try {
-//         // Loop through selected task IDs and delete each task
-
-//         // Use Mongoose's $in operator to delete multiple documents by IDs
-//     await Habit.deleteMany({ _id: { $in: habitIdsToDelete } });
-
-        
-//         for (let i of habitIdsToDelete) {
-//             await Habit.findByIdAndDelete(i); // Delete task by ID
-//         }
-//         console.log('Habit removed successfully');
-//         return res.redirect('back'); 
-
-//     } catch (error) {
-//         console.log('Error in deleting habit from database : ', error);
-//         return res.redirect('back'); 
-//     }
-// }
