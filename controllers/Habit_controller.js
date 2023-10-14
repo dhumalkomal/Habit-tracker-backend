@@ -46,6 +46,7 @@ function getD(n) {
     return { date: newDate, day };
 }
 
+// handle habit content
 module.exports.habitContent = async function(req, res){
     const { content } = req.body;
         console.log(content)
@@ -133,7 +134,7 @@ module.exports.habitStatus = async function(req, res) {
 }
 
 
-// function handle add task
+// function handle add Habit
 module.exports.addHabit = async function(req, res){
     console.log("Added the Habit");
 
@@ -152,7 +153,7 @@ module.exports.addHabit = async function(req, res){
     }
 }
 
-//  function to handle deleting tasks
+//  function to handle deleting habit
 module.exports.deleteHabit = async function (req, res) {
     const documentProduct = await Habit.findOneAndRemove({ _id: req.params.id });
         if (!documentProduct) {

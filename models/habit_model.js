@@ -12,6 +12,7 @@ const HabitSchema = new mongoose.Schema({
         complete: String
     }]
 } , {
+    
     timestamps:true // Automatically add 'createdAt' and 'updatedAt' fields
 });
 

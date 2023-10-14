@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('express'); //set up of express node.js
 const app = express();
-const port = 8000;
+const port = 8000; //set up port value for localhost
 
 // database config using Mongoose
 const db = require('./config/mongoose');
