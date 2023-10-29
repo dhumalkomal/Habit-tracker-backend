@@ -153,10 +153,29 @@ module.exports.addHabit = async function(req, res){
     }
 }
 
+// //  function to handle deleting habit
+// module.exports.deleteHabit = async function (req, res) {
+//     const documentProduct = await Habit.findOneAndRemove({ _id: req.params.id });
+//         if (!documentProduct) {
+//             res.status(500).json(err);
+//         } res.redirect('/')
+// }
+
 //  function to handle deleting habit
 module.exports.deleteHabit = async function (req, res) {
-    const documentProduct = await Habit.findOneAndRemove({ _id: req.params.id });
+    try {
+        const documentProduct = await Habit.findOneAndRemove({ _id: req.params.id });
         if (!documentProduct) {
-            res.status(500).json(err);
-        } res.redirect('/')
-}
+            // Create an error object and respond with it
+            const err = new Error("Habit not found");
+            res.status(404).json({ error: err.message });
+        } else {
+            // Successfully deleted the habit, redirect to another route
+            res.redirect('/');
+        }
+    } catch (error) {
+        // Handle any other errors that might occur during deletion
+        res.status(500).json({ error: error.message });
+    }
+};
+
