@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.set("strictQuery", false);
 
-// const mongoURL = 'mongodb://127.0.0.1:27017/Habit_tracker'; 
+
 const mongoURL = 'mongodb+srv://habit:habit123@cluster0.krqzlcy.mongodb.net/habits-tracker?retryWrites=true&w=majority'; 
 
 
