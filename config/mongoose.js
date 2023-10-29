@@ -6,6 +6,7 @@ mongoose.set("strictQuery", false);
 const mongoURL = 'mongodb+srv://habit:habit123@cluster0.krqzlcy.mongodb.net/habits-tracker?retryWrites=true&w=majority'; 
 
 
+
 const db = mongoose.Connection;
 
 // Connect to MongoDB using Mongoose

@@ -153,14 +153,6 @@ module.exports.addHabit = async function(req, res){
     }
 }
 
-// //  function to handle deleting habit
-// module.exports.deleteHabit = async function (req, res) {
-//     const documentProduct = await Habit.findOneAndRemove({ _id: req.params.id });
-//         if (!documentProduct) {
-//             res.status(500).json(err);
-//         } res.redirect('/')
-// }
-
 //  function to handle deleting habit
 module.exports.deleteHabit = async function (req, res) {
     try {
